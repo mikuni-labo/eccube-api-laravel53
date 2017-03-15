@@ -11,10 +11,21 @@
 |
 */
 
-Auth::routes();
-
-Route::get('/',        'Controller@welcome');
-
-Route::get('/home',    'HomeController@index');
-
-Route::get('/test',    'ApiTestController@test');
+/**
+ * Web
+ */
+Route::group([
+    'middleware' => [
+        'web',
+    ],
+],
+function ()
+{
+    Auth::routes();
+    
+    Route::get('/',        'Controller@welcome');
+    
+    Route::get('home',     'HomeController@index');
+    
+    Route::get('test',     'TestController@index');
+});

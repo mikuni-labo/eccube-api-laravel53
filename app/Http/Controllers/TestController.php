@@ -4,16 +4,25 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Libraries\cURL;
+use Illuminate\Http\Request;
 
-class ApiTestController extends Controller
+class TestController extends Controller
 {
-    public function __construct()
+    private $request;
+    
+    public function __construct(Request $Request)
     {
-        //
+        $this->request = $Request;
     }
     
-    public function test()
+    public function index()
     {
+        dd($this->request);
+        
+        
+        
+        
+        
         /**
          * ベース
          */
