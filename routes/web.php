@@ -11,6 +11,10 @@
 |
 */
 
+Auth::routes();
+
 Route::get('/',        'Controller@welcome');
+
+Route::get('/home',    'HomeController@index');
 
 Route::get('/test',    'ApiTestController@test');

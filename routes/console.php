@@ -29,5 +29,5 @@ Artisan::command('refresh', function ()
     $this->call('config:cache');
     $this->call('route:cache');
     $this->call('view:clear');
-    $this->call('optimize');
+//     $this->call('optimize');
 })->describe('Do Refresh Commands!');
