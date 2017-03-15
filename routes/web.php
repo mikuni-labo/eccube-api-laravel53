@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',        'Controller@welcome');
+
+Route::get('/test',    'ApiTestController@test');
