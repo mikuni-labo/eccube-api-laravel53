@@ -23,9 +23,43 @@ function ()
 {
     Auth::routes();
     
-    Route::get('/',        'Controller@welcome');
-    
-    Route::get('home',     'HomeController@index');
-    
-    Route::get('test',     'TestController@index');
+    Route::get('/',                     'WelcomeController@index');
+    Route::get('home',                  'HomeController@index')->name('home');
+
+    /**
+     * sample
+     */
+    Route::group([
+        'prefix'    => 'sample',
+        'namespace' => 'Sample',
+    ],
+    function ()
+    {
+        /**
+         * api
+         */
+        Route::group([
+            'prefix'    => 'api',
+            'namespace' => 'Api',
+        ],
+        function ()
+        {
+            Route::get('/',             'EccubeApiController@index')->name('sample.api');
+            Route::get('customers',     'CustomersController@index')->name('sample.api.customers');
+            Route::get('orders',        'OrdersController@index')->name('sample.api.orders');
+            Route::get('products',      'ProductsController@index')->name('sample.api.products');
+
+            /**
+             * sample
+             */
+//             Route::group([
+//                 'prefix'    => 'sample',
+//                 'namespace' => 'Sample',
+//             ],
+//                 function ()
+//                 {
+//                     Route::get('api',          'ApiController@index')->name('sample.api');
+//             });
+        });
+    });
 });

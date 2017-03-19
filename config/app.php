@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Name
+    | Application Generals
     |--------------------------------------------------------------------------
     |
     | This value is the name of your application. This value is used when the
@@ -12,8 +12,12 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name'    => env('APP_NAME', null),
-    'version' => env('APP_VERSION', null),
+    'name'        => env('APP_NAME', null),
+    'version'     => env('APP_VERSION', null),
+
+    'api' => [
+        'name'    => env('APP_API_NAME', null),
+    ],
 
     /*
     |--------------------------------------------------------------------------
