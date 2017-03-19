@@ -12,7 +12,8 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Laravel',
+    'name'    => env('APP_NAME', null),
+    'version' => env('APP_VERSION', null),
 
     /*
     |--------------------------------------------------------------------------
@@ -25,7 +26,7 @@ return [
     |
     */
 
-    'env' => env('APP_ENV', 'production'),
+    'env' => env('APP_ENV', 'local'),
 
     /*
     |--------------------------------------------------------------------------
@@ -64,7 +65,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => env('APP_TIMEZONE', 'Asia/Tokyo'),
 
     /*
     |--------------------------------------------------------------------------
@@ -77,7 +78,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => env('APP_LOCALE', 'ja'),
 
     /*
     |--------------------------------------------------------------------------
@@ -90,7 +91,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => env('APP_FALLBACK_LOCALE', 'ja'),
 
     /*
     |--------------------------------------------------------------------------
@@ -103,9 +104,8 @@ return [
     |
     */
 
-    'key' => env('APP_KEY'),
-
-    'cipher' => 'AES-256-CBC',
+    'key'    => env('APP_KEY'),
+    'cipher' => env('APP_CIPHER', 'AES-256-CBC'),
 
     /*
     |--------------------------------------------------------------------------
@@ -120,9 +120,9 @@ return [
     |
     */
 
-    'log' => env('APP_LOG', 'single'),
-
-    'log_level' => env('APP_LOG_LEVEL', 'debug'),
+    'log'           => env('APP_LOG', 'single'),
+    'log_level'     => env('APP_LOG_LEVEL', 'debug'),
+    'log_max_files' => env('APP_LOG_MAX_FILES', 5),
 
     /*
     |--------------------------------------------------------------------------
@@ -177,6 +177,16 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * Add Any Service Providers...
+         */
+        Collective\Html\HtmlServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
+//         App\Providers\ComposerServiceProvider::class,             // ビューコンポーザ
+//         App\Providers\ValidatorServiceProvider::class,            // カスタムバリデート
+        Laracasts\Flash\FlashServiceProvider::class,              // フラッシュメッセージパッケージ
+        App\Providers\LocalServiceProvider::class,                // ローカル環境サービスプロバイダ登録
+        App\Providers\UtilityServiceProvider::class,              // ユーティティ
     ],
 
     /*
@@ -226,6 +236,18 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        /*
+         * Add Any Aliases...
+         */
+        'Form'      => Collective\Html\FormFacade::class,
+        'Html'      => Collective\Html\HtmlFacade::class,
+        'Image'     => Intervention\Image\Facades\Image::class,
+        'Flash'     => Laracasts\Flash\Flash::class,
+        'File'      => Illuminate\Support\Facades\File::class,
+        'Hash'      => Illuminate\Support\Facades\Hash::class,
+        'Input'     => Illuminate\Support\Facades\Input::class,
+//         'Util'      => App\Facades\UtilityFacade::class,
+//         'Carbon'    => Carbon\Carbon::class,
     ],
 
 ];
