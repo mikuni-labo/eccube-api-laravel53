@@ -12,15 +12,46 @@
 */
 
 /**
- * Api
+ * Api (prefix:api)
  */
 Route::group([
+    'namespace' => 'Api',
     'middleware' => [
         'api',
     ],
-    'namespace' => 'Api',
 ],
 function ()
 {
-    Route::get('test',    'ApiTestController@index');
+    /**
+     * Products
+     */
+    Route::group([
+        'prefix' => 'products',
+    ],
+    function ()
+    {
+        Route::get('/',               'ProductsController@index')->name('api.products');
+    });
+
+    /**
+     * Orders
+     */
+    Route::group([
+        'prefix' => 'orders',
+    ],
+    function ()
+    {
+        Route::get('/',               'OrdersController@index')->name('api.orders');
+    });
+
+    /**
+     * Customers
+     */
+    Route::group([
+        'prefix' => 'customers',
+    ],
+    function ()
+    {
+        Route::get('/',               'CustomersController@index')->name('api.customers');
+    });
 });

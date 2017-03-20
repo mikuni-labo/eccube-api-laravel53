@@ -9,9 +9,9 @@ class ApiTestController extends Controller
 {
     private $request;
     
-    public function __construct(Request $Request)
+    public function __construct(Request $request)
     {
-        $this->request = $Request;
+        $this->request = $request;
     }
 
     public function index()

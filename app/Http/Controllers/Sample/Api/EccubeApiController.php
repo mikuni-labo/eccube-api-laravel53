@@ -3,15 +3,13 @@
 namespace App\Http\Controllers\Sample\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 
 class EccubeApiController extends Controller
 {
-    private $request;
-    
-    public function __construct(Request $Request)
+    public function __construct()
     {
-        $this->request = $Request;
+        //
     }
 
     public function index()

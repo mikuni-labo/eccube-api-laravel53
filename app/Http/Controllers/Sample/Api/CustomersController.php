@@ -14,8 +14,7 @@ class CustomersController extends Controller
 
     public function index()
     {
-        dd('here');
-//         return view('sample.api.index');
+        return view('sample.api.customers');
     }
 
 }

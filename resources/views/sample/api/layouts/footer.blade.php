@@ -1,6 +1,6 @@
 <!-- Footer -->
 <footer>
-    <div class="container text-center">
+    <div class="footer">
         <p>{{ date('Y') }} &copy; {{ config('app.name') }}</p>
     </div>
 </footer>

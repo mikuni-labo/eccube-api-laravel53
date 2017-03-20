@@ -48,18 +48,6 @@ function ()
             Route::get('customers',     'CustomersController@index')->name('sample.api.customers');
             Route::get('orders',        'OrdersController@index')->name('sample.api.orders');
             Route::get('products',      'ProductsController@index')->name('sample.api.products');
-
-            /**
-             * sample
-             */
-//             Route::group([
-//                 'prefix'    => 'sample',
-//                 'namespace' => 'Sample',
-//             ],
-//                 function ()
-//                 {
-//                     Route::get('api',          'ApiController@index')->name('sample.api');
-//             });
         });
     });
 });

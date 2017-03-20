@@ -10,13 +10,11 @@
 
         <div class="content">
             <div class="title m-b-md">
-                {{ studly_case(config('app.api.name')) }}
+                {{ studly_case('products') }}
             </div>
 
             <div class="links">
-                <a href="{{ route('sample.api.products') }}">Products</a>
-                <a href="{{ route('sample.api.orders') }}">Orders</a>
-                <a href="{{ route('sample.api.customers') }}">Customers</a>
+                p
             </div>
         </div>
     </div>
